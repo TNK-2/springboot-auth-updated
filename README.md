@@ -1,5 +1,11 @@
 # SpringBootでJWT認証
 
+ソースコード  
+https://github.com/Yu-s/springboot-auth-updated
+
+参考URL  
+https://auth0.com/blog/implementing-jwt-authentication-on-spring-boot/
+
 ##　動作環境
 
 * Java 11

@@ -9,7 +9,7 @@ https://auth0.com/blog/implementing-jwt-authentication-on-spring-boot/
 ##　動作環境
 
 * Java 11
-* gradle 6.3 (5 > でいける気がする)
+* gradle 6.3 (5 >= でいける気がする)
 
 ## 動作確認
 

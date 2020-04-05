@@ -1,11 +1,42 @@
-# Developing and Securing RESTful APIs with Spring Boot
-This sample application shows how to develop a Restful api with
-SpringBoot and secure it using Spring Security via JSON Web Tokens.
+# SpringBootでJWT認証
 
-# How To Setup The Application And Run It
-* Make sure you have gradle installed on your system and an IDE. If 
-you don't have an IDE don't worry you can still follow with a text editor and 
-the terminal.
-* Make sure you have Java 10 installed on your system. [Get it here](http://www.oracle.com/technetwork/java/javase/downloads/jdk10-downloads-4416644.html)
-* Clone the repository using the command `git clone https://github.com/vladimirfomene/springboot-auth-updated.git`
-* Run `gradle bootrun` to build and run the project or run the project from your ide(make sure you build it before running)
+##　動作環境
+
+* Java 11
+* gradle 6.3 (5 > でいける気がする)
+
+## 動作確認
+
+起動
+```
+$ gradle bootrun
+```
+
+動作確認
+
+```
+# HTTP 403 Forbidden
+curl http://localhost:8080/tasks
+
+# 新規ユーザー登録
+curl -H "Content-Type: application/json" -X POST -d '{
+    "username": "admin",
+    "password": "password"
+}' http://localhost:8080/users/sign-up
+
+# ログイン (JWT生成される)
+curl -i -H "Content-Type: application/json" -X POST -d '{
+    "username": "admin",
+    "password": "password"
+}' http://localhost:8080/login
+
+# POSTでタスク登録(API). ログイン時に生成されたJWTを渡す(xxx.yyy.zzz の部分)
+curl -H "Content-Type: application/json" \
+-H "Authorization: Bearer xxx.yyy.zzz" \
+-X POST -d '{
+    "description": "Buy watermelon"
+}'  http://localhost:8080/tasks
+
+# タスク一覧取得. ログイン時に生成されたJWTを渡す(xxx.yyy.zzz の部分)
+curl -H "Authorization: Bearer xxx.yyy.zzz" http://localhost:8080/tasks
+```

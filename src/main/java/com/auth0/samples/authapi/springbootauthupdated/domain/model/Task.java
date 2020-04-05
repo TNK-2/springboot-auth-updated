@@ -1,4 +1,4 @@
-package com.auth0.samples.authapi.springbootauthupdated.task.Entity;
+package com.auth0.samples.authapi.springbootauthupdated.domain.model;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;

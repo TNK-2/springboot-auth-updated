@@ -1,8 +1,8 @@
-package com.auth0.samples.authapi.springbootauthupdated.task.Controller;
+package com.auth0.samples.authapi.springbootauthupdated.application.api;
 
-import com.auth0.samples.authapi.springbootauthupdated.task.Entity.ApplicationUser;
+import com.auth0.samples.authapi.springbootauthupdated.domain.model.ApplicationUser;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
-import com.auth0.samples.authapi.springbootauthupdated.task.Repository.ApplicationUserRepository;
+import com.auth0.samples.authapi.springbootauthupdated.infrastructure.repository.ApplicationUserRepository;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
